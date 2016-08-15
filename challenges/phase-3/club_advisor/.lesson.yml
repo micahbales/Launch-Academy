@@ -1,0 +1,8 @@
+---
+title: "Club Advisor"
+type: "challenge"
+description: "Using hashes, identify the right club for the shot!"
+tags: "hashes"
+ignore:
+- "club_advisor.md"
+- "solution.rb"

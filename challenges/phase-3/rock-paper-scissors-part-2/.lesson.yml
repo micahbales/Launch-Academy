@@ -1,0 +1,9 @@
+---
+title: "Rock, Paper, Scissors: Part 2"
+type: "challenge"
+description: >
+  Incorporate your knowledge of looping, iteration, flow-control,
+  and data structures to improve your Rock, Paper, Scissors app.
+tags: "ignition"
+ignore:
+- "rock-paper-scissors-part-2.md"

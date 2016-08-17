@@ -1,5 +1,3 @@
-require 'pry'
-
 food = {
   "hamburger" => 4.00,
   "hot dog" => 3.00,
@@ -15,10 +13,9 @@ error_item = ""
 
 while error == true || total == 0 do
   puts "Welcome to Goodburger, home of the Goodburger! Can I take your order?"
+  
   order = gets.chomp.downcase
   order_array = order.split(',')
-
-
 
   order_array.each do |item|
     if food[item]

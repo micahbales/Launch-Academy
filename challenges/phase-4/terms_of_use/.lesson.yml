@@ -1,0 +1,7 @@
+---
+title: "Terms of Use"
+type: "exercise"
+description: "Use methods to eliminate repetition and fulfill legal obligations in your program"
+tags: "methods, return-values, parameters, arguments"
+ignore:
+- "terms_of_use.md"

@@ -1,0 +1,8 @@
+---
+title: "All the Songs"
+type: "exercise"
+description: "practice writing to and reading from a CSV file"
+tags: "file i/o, csv"
+ignore:
+- "all-the-songs.md"
+- "all-the-songs.csv"

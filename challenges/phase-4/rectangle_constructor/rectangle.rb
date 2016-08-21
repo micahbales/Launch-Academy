@@ -15,6 +15,3 @@ class Rectangle
   end
 
 end
-
-require 'pry'
-binding.pry

@@ -1,0 +1,6 @@
+---
+title: "The Jukebox"
+type: "exercise"
+description: "Create a playlist using a custom Ruby class"
+tags: "oop, initialize, constructors, state, behavior, instance-methods"
+---

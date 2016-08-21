@@ -1,5 +1,3 @@
-require 'pry'
-
 class Coffee
 
   attr_reader :max, :amount
@@ -26,5 +24,3 @@ class Coffee
   end
 
 end
-
-binding.pry

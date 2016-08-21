@@ -8,7 +8,7 @@ class Student
     @first_name = student_info[:first_name]
     @last_name = student_info[:last_name]
     @grades = student_info[:grades]
-    @average = student_info[:grades].reduce(:+).to_f / student_info[:grades].length
+    @average = student_info[:grades].reduce(&:+).to_f / student_info[:grades].length
   end
 end
 

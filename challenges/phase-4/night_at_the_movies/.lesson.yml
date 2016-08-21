@@ -1,0 +1,6 @@
+---
+title: "Night at the Movies"
+type: "exercise"
+description: "Model a list of movies with a custom Ruby class"
+tags: "classes, initialize, objects, constructors, state, behavior, instance-methods"
+---

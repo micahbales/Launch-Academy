@@ -46,6 +46,3 @@ class Pizza
   end
 
 end
-
-require 'pry'
-binding.pry

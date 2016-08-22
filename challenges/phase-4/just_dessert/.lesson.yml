@@ -1,0 +1,6 @@
+---
+title: "Just Dessert"
+type: "exercise"
+description: "Keep track of cookie inventory with a custom Ruby class"
+tags: "oop, initialize, constructors, state, behavior, instance-methods"
+---

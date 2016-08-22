@@ -1,0 +1,6 @@
+---
+title: "Grab Some Pizza!"
+type: "exercise"
+description: "Model your pizza order with a Ruby class"
+tags: "oop, initialize, constructors, state, behavior, instance-methods"
+---

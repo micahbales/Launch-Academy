@@ -1,0 +1,47 @@
+.tree-wrapper {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.branch {
+  background-color: green;
+  height: 50px;
+  border-radius: 25px;
+  margin: 7px auto;
+}
+
+.trunk {
+  background-color: brown;
+  width: 50px;
+  height: 100px;
+  border-radius: 25px;
+  margin: auto;
+}
+
+.branch-0 {
+  width: 50px;
+}
+
+.branch-1 {
+  width: 100px;
+}
+
+.branch-2 {
+  width: 150px;
+}
+
+.branch-3 {
+  width: 200px;
+}
+
+.branch-4 {
+  width: 250px;
+}
+
+.branch-5 {
+  width: 300px;
+}
+
+.branch-6 {
+  width: 350px;
+}

@@ -1,5 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Alegreya|Source+Sans+Pro';
 
+body {
+  margin: 0;
+}
+
 h1, h2, h3, h4 {
   font-family: Alegreya, serif;
   color: white;

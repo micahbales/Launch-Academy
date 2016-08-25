@@ -1,0 +1,10 @@
+---
+title: "Geometric Classes"
+type: "challenge"
+description: "Create Ruby objects for different shapes."
+ignore:
+- "geometric-classes.md"
+- ".rspec"
+- "Gemfile"
+- "Gemfile.lock"
+- "Rakefile"

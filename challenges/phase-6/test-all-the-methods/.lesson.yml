@@ -1,0 +1,8 @@
+---
+title: "Test all the methods"
+type: "exercise"
+description: "Add tests to already implemented methods"
+tags: "tdd, unit-testing, rspec, refactoring"
+ignore:
+  - "test-all-the-methods.md"
+  - "coverage/"

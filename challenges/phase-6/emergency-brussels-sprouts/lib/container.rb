@@ -14,14 +14,9 @@ class Container
   end
 
   def fill_with_ingredient(ingredient)
-    if ingredient.name == "Brussels Sprouts"
-      7000.times do
-        @ingredients << ingredient
-      end
-    elsif ingredient.name == "Cheesy Poof"
-      40_000.times do
-        @ingredients << ingredient
-      end
+    number_of_items = (@maximum_holding_weight / ingredient.weight).to_i
+    number_of_items.times do
+      @ingredients << ingredient
     end
     @weight += @maximum_holding_weight
   end

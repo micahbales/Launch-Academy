@@ -1,0 +1,7 @@
+---
+title: "Emergency Brussels Sprouts"
+type: "challenge"
+description: "Implementing classes with composition"
+tags: "oop, object-composition"
+ignore:
+- "emergency-brussels-sprouts.md"

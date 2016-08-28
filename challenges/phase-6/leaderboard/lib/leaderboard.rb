@@ -32,27 +32,26 @@ GAME_INFO = [
     }
 ]
 
-require 'pry'
-
-  attr_reader :team_data
+  attr_reader :teams_data, :games_data
 
   def initialize
-    @team_data = get_team_data
+    @teams_data = get_teams_data
+    @games_data = get_games_data
   end
 
-  def get_team_data
-    @team_team_records = []
+  def get_teams_data
+    @all_team_records = []
     GAME_INFO.each do |game|
-      if !@team_team_records.find{ |a| a.name == game[:home_team]}
-        @team_team_records << Team.new(game[:home_team])
+      if !@all_team_records.find{ |a| a.name == game[:home_team]}
+        @all_team_records << Team.new(game[:home_team])
       end
-      if !@team_team_records.find{ |a| a.name == game[:away_team]}
-        @team_team_records << Team.new(game[:away_team])
+      if !@all_team_records.find{ |a| a.name == game[:away_team]}
+        @all_team_records << Team.new(game[:away_team])
       end
     end
     GAME_INFO.each do |game|
-      home_team = @team_team_records.find { |team| team.name == game[:home_team]}
-      away_team = @team_team_records.find { |team| team.name == game[:away_team]}
+      home_team = @all_team_records.find { |team| team.name == game[:home_team]}
+      away_team = @all_team_records.find { |team| team.name == game[:away_team]}
       if game[:home_score] > game[:away_score]
         home_team.wins += 1
         away_team.losses += 1
@@ -61,15 +60,22 @@ require 'pry'
         away_team.wins += 1
       end
     end
-    @team_team_records.sort! {|a, b| b.wins-b.losses <=> a.wins-a.losses}
-    @team_team_records.each_with_index do |team, i|
+    @all_team_records.sort! {|a, b| b.wins-b.losses <=> a.wins-a.losses}
+    @all_team_records.each_with_index do |team, i|
       team.rank = i + 1
     end
-    @team_team_records
+    @all_team_records
+  end
+
+  def get_games_data
+    @all_games = []
+    GAME_INFO.each do |game|
+      @all_games << Game.new(game[:home_team], game[:away_team], game[:home_score], game[:away_score])
+    end
   end
 
   def wins_losses(team_name)
-    @team_data.each do |team|
+    @teams_data.each do |team|
       if team.name == team_name
         @wins_losses = {wins: team.wins, losses: team.losses}
       end
@@ -78,7 +84,7 @@ require 'pry'
   end
 
   def rank(team_name)
-    @team_data.each do |team|
+    @teams_data.each do |team|
       if team.name == team_name
         @rank = team.rank
       end
@@ -89,11 +95,61 @@ require 'pry'
   def print_leaderboard
     @print_leaderboard = "--------------------------------------------------
 | Name      Rank      Total Wins    Total Losses |
-| #{@team_data[0].name}  #{@team_data[0].rank}         #{@team_data[0].wins}             #{@team_data[0].losses}            |
-| #{@team_data[1].name}  #{@team_data[1].rank}         #{@team_data[1].wins}             #{@team_data[1].losses}            |
-| #{@team_data[2].name}   #{@team_data[2].rank}         #{@team_data[2].wins}             #{@team_data[2].losses}            |
-| #{@team_data[3].name}     #{@team_data[3].rank}         #{@team_data[3].wins}             #{@team_data[3].losses}            |
+| #{@teams_data[0].name}  #{@teams_data[0].rank}         #{@teams_data[0].wins}             #{@teams_data[0].losses}            |
+| #{@teams_data[1].name}  #{@teams_data[1].rank}         #{@teams_data[1].wins}             #{@teams_data[1].losses}            |
+| #{@teams_data[2].name}   #{@teams_data[2].rank}         #{@teams_data[2].wins}             #{@teams_data[2].losses}            |
+| #{@teams_data[3].name}     #{@teams_data[3].rank}         #{@teams_data[3].wins}             #{@teams_data[3].losses}            |
 --------------------------------------------------"
+  end
+
+  def team_game_summary(team_name)
+
+    @number_of_games = 0
+    @game_descriptions = ""
+
+    @games_data.each do |game|
+
+      if game[:home_team] == team_name || game[:away_team] == team_name
+        @number_of_games += 1
+        @played_as = ""
+        @opposing_team = ""
+        @won_lost = ""
+        @winning_score = 0
+        @losing_score = 0
+
+        if game[:away_team] == team_name
+
+          @played_as = "the away team"
+          @opposing_team = game[:home_team]
+
+          if game[:home_score] < game[:away_score]
+            @won_lost = "won"
+            @winning_score = game[:away_score]
+            @losing_score = game[:home_score]
+          else
+            @won_lost = "lost"
+            @losing_score = game[:away_score]
+            @winning_score = game[:home_score]
+          end
+        elsif game[:home_team] == team_name
+          @played_as = "the home team"
+          @opposing_team = game[:away_team]
+
+          if game[:home_score] > game[:away_score]
+            @won_lost = "won"
+            @losing_score = game[:away_score]
+            @winning_score = game[:home_score]
+          else
+            @won_lost = "lost"
+            @winning_score = game[:away_score]
+            @losing_score = game[:home_score]
+          end
+        end
+        @game_descriptions += "They played as #{@played_as} against the #{@opposing_team} and #{@won_lost}: #{@winning_score} to #{@losing_score}.\n"
+      end
+    end
+  @intro = "#{team_name} played #{@number_of_games} games.\n"
+  @summary_description = @intro + @game_descriptions
   end
 
 end

@@ -104,52 +104,52 @@ GAME_INFO = [
 
   def team_game_summary(team_name)
 
-    @number_of_games = 0
-    @game_descriptions = ""
+    number_of_games = 0
+    game_descriptions = ""
 
     @games_data.each do |game|
 
       if game[:home_team] == team_name || game[:away_team] == team_name
-        @number_of_games += 1
-        @played_as = ""
-        @opposing_team = ""
-        @won_lost = ""
-        @winning_score = 0
-        @losing_score = 0
+        number_of_games += 1
+        played_as = ""
+        opposing_team = ""
+        won_lost = ""
+        winning_score = 0
+        losing_score = 0
 
         if game[:away_team] == team_name
 
-          @played_as = "the away team"
-          @opposing_team = game[:home_team]
+          played_as = "the away team"
+          opposing_team = game[:home_team]
 
           if game[:home_score] < game[:away_score]
-            @won_lost = "won"
-            @winning_score = game[:away_score]
-            @losing_score = game[:home_score]
+            won_lost = "won"
+            winning_score = game[:away_score]
+            losing_score = game[:home_score]
           else
-            @won_lost = "lost"
-            @losing_score = game[:away_score]
-            @winning_score = game[:home_score]
+            won_lost = "lost"
+            losing_score = game[:away_score]
+            winning_score = game[:home_score]
           end
         elsif game[:home_team] == team_name
-          @played_as = "the home team"
-          @opposing_team = game[:away_team]
+          played_as = "the home team"
+          opposing_team = game[:away_team]
 
           if game[:home_score] > game[:away_score]
-            @won_lost = "won"
-            @losing_score = game[:away_score]
-            @winning_score = game[:home_score]
+            won_lost = "won"
+            losing_score = game[:away_score]
+            winning_score = game[:home_score]
           else
-            @won_lost = "lost"
-            @winning_score = game[:away_score]
-            @losing_score = game[:home_score]
+            won_lost = "lost"
+            winning_score = game[:away_score]
+            losing_score = game[:home_score]
           end
         end
-        @game_descriptions += "They played as #{@played_as} against the #{@opposing_team} and #{@won_lost}: #{@winning_score} to #{@losing_score}.\n"
+        game_descriptions += "They played as #{played_as} against the #{opposing_team} and #{won_lost}: #{winning_score} to #{losing_score}.\n"
       end
     end
-  @intro = "#{team_name} played #{@number_of_games} games.\n"
-  @summary_description = @intro + @game_descriptions
+  intro = "#{team_name} played #{number_of_games} games.\n"
+  summary_description = intro + game_descriptions
   end
 
 end

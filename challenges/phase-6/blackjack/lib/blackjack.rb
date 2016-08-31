@@ -1,7 +1,6 @@
 require_relative "deck"
 require_relative "hand"
 require_relative "card"
-require 'pry'
 
 deck = Deck.new
 player_hand = Hand.new(Card.new(deck.deal))
@@ -20,8 +19,8 @@ end
 player_turn = true
 while player_turn == true do
   player_score = player_hand.calculate_hand
-
   if player_score > 21
+
     puts "Bust! Game over..."
     break
   end

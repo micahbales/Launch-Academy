@@ -1,5 +1,4 @@
 class Hand
-
   attr_accessor :cards, :total_score
 
   def initialize(cards)
@@ -7,21 +6,19 @@ class Hand
   end
 
   def calculate_hand
-    total_score = 0
+    total_value = 0
     @cards.each do |card|
-    if card.rank.include?("K") || card.rank.include?("Q") || card.rank.include?("J") || card.rank.include?("10")
-      total_score += 10
+      total_value += card.value
     end
-    if card.rank.to_i <= 9 && card.rank.to_i >= 2
-      total_score += card.rank.to_i
-    end
-    if card.rank.include?("A") && total_score < 11
-      total_score += 11
-    elsif card.rank.include?("A") && total_score >= 11
-      total_score += 1
-    end
-    end
-    total_score
+    account_for_aces(total_value)
   end
 
+  def account_for_aces(total_value)
+    @cards.each do |card|
+      if card.ace? && total_value <= 11
+        total_value +=10
+      end
+    end
+    total_value
+  end
 end

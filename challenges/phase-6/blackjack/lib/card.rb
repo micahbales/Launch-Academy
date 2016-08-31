@@ -1,5 +1,6 @@
 class Card
 
+  attr_reader :value
   attr_accessor :rank, :suit
 
   def initialize(card)
@@ -7,15 +8,22 @@ class Card
     @suit = card[1]
   end
 
-  def type
-    if @rank == "A"
-      type = "ace"
-    elsif @rank == "K" || @rank == "Q" || @rank == "J"
-      type = "face card"
+  def value
+    if facecard?
+      10
+    elsif ace?
+      1
     else
-      type = "number card"
+      rank.to_i
     end
-    type
+  end
+
+  def ace?
+    rank == 'A'
+  end
+
+  def facecard?
+    'JQK'.include?(rank.to_s)
   end
 
 end

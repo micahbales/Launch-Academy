@@ -111,11 +111,6 @@ GAME_INFO = [
 
       if game[:home_team] == team_name || game[:away_team] == team_name
         number_of_games += 1
-        played_as = ""
-        opposing_team = ""
-        won_lost = ""
-        winning_score = 0
-        losing_score = 0
 
         if game[:away_team] == team_name
 

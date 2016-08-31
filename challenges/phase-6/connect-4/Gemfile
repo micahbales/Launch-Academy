@@ -1,0 +1,5 @@
+source "https://rubygems.org/"
+
+gem "pry"
+gem "rspec"
+gem "grid_struct" # https://github.com/samuelmolinari/grid_struct

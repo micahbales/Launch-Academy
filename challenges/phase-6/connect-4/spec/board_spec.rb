@@ -56,7 +56,146 @@ RSpec.describe Board do
   end
 
   describe "#win?" do
-    it "returns true when there are four markers in a row, vertically"
-    it "returns true when there are four markers in a row, horizontally"
+    it "returns true when there are four of the same marker in a row, vertically" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(true)
+    end
+    it "returns true when there are four of the same marker in a row, horizontally" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ ["X", "X", "X", "X", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(true)
+    end
+    it "returns true when there are four of the same marker in a row, horizontally AND there are other markers present" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+ ["O", "O", "X", "X", "X", "X", "O", "O", " ", " "]]
+      expect(game_board.win?).to eq(true)
+    end
+    it "returns true when there are four of the same marker in a row, vertically AND there are other markers present" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(true)
+    end
+    it "returns FALSE when there are NO four of the same marker in a row, vertically AND there are other markers present" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(false)
+    end
+    it "returns FALSE when there are NOT four of the same marker in a row, vertically AND there are other markers present" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["O", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(false)
+    end
+    it "returns FALSE when there is only one marker present" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  ["X", " ", " ", " ", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(false)
+    end
+    it "returns FALSE when there is no marker present" do
+      game_board
+      game_board.grid = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]]
+      expect(game_board.win?).to eq(false)
+    end
+    it "returns true when the board is full and there is a vertically-aligned match" do
+      game_board
+      game_board.grid = [["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "O", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "O", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"]]
+      expect(game_board.win?).to eq(true)
+    end
+    it "returns true when the board is full and there is a horizontally-aligned match" do
+      game_board
+      game_board.grid = [["O", "X", "X", "X", "X", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"],
+  ["O", "X", "O", "X", "O", "X", "O", "X", "O", "X"],
+  ["X", "O", "X", "O", "X", "O", "X", "O", "X", "O"]]
+      expect(game_board.win?).to eq(true)
+    end
   end
+
 end

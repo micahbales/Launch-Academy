@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'board'
 require_relative 'player'
 
@@ -30,8 +29,8 @@ while true
 
   game_board = Board.new
   puts game_board.display_board
-  while !game_board.win? && !game_board.tie?
 
+  while !game_board.win? && !game_board.tie?
     puts "\nOK, #{current_player.name}! Select a column (A-J) where you'd like to place your marker!"
     column_selection = gets.chomp.upcase
 
@@ -55,7 +54,6 @@ while true
     else
       puts "Looks like that column is full! Try placing somewhere else."
     end
-
   end
 
   if game_board.win?

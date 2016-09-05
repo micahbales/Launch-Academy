@@ -1,0 +1,7 @@
+---
+title: "Object Oriented Marathon"
+type: "challenge"
+description: "Build a zoo full of Ruby animals."
+tags: "oop, exceptions"
+ignore:
+- "oo-marathon.md"

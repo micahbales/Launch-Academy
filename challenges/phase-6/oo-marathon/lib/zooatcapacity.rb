@@ -1,0 +1,2 @@
+class ZooAtCapacity < StandardError
+end

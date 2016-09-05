@@ -1,0 +1,7 @@
+---
+title: "Chillow"
+type: "challenge"
+description: "Become a real estate mogul!"
+tags: "oop, inheritance, modules, object-composition"
+ignore:
+- "chillow.md"

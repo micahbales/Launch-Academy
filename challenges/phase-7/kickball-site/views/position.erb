@@ -1,0 +1,13 @@
+<h1><%= @position %><h1>
+
+<h3>The following individuals play <%= @position %>:</h3>
+
+<ol>
+  <% @players.each do |player| %>
+    <% if player.position == @position %>
+      <li><a href="/teams/<%= player.team %>"><%= player.name %></a></li>
+    <% end %>
+  <% end %>
+</ol>
+
+<h3><a href="/">Back to Home</a></h3>

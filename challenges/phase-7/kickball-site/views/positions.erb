@@ -1,0 +1,9 @@
+<h1>Positions</h1>
+<h3>Every team has the following positions:</h3>
+<ol>
+<% @positions.each do |position| %>
+  <li><a href="/positions/<%= position %>"><%= position %></a></li>
+<% end %>
+</ol>
+
+<h3><a href="/">Back to Home</a></h3>

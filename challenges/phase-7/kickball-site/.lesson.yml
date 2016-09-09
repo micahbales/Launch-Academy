@@ -1,0 +1,8 @@
+---
+title: "Kickball Site"
+type: "challenge"
+description: "Build web app with JSON data."
+tags: "sinatra, json"
+ignore:
+- "kickball-site.md"
+- "roster.json"

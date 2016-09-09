@@ -1,0 +1,9 @@
+<h1>Players</h1>
+<h3>We have the following players in LACKP:</h3>
+<ol>
+<% @players.each do |player| %>
+  <li><a href="/teams/<%= player.team %>"><%= player.name %>, <%= player.position %></a></li>
+<% end %>
+</ol>
+
+<h3><a href="/">Back to Home</a></h3>

@@ -1,0 +1,7 @@
+---
+title: "Need the Ingredients"
+type: "exercise"
+description: "Use curl to understand POST requests"
+tags: "evening-exercise, http"
+ignore:
+- "need-the-ingredients.md"

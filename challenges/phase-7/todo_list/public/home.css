@@ -17,3 +17,7 @@ li {
   /* Add a bit more spacing between list items. */
   padding: 5px;
 }
+
+a {
+  color: #00ff00;
+}

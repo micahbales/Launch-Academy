@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sessions Authentication</title>
+  </head>
+
+  <body class="clearfix">
+    <header>
+      <h1>Saved User Information</h1>
+    </header>
+
+    <% if session[:username] %>
+      <h2>Hello, <%= session[:username] %></h2>
+        
+      Your saved message is: <%= @message %>
+
+      <p>
+        <a href="/reset">Reset User Info</a>
+      </p>
+      <p>
+        <a href="/index">Back To Index</a>
+      </p>
+
+    <% else %> 
+      <%= erb :form %>
+    <% end %>
+  </body>
+</html>

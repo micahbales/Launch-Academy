@@ -1,0 +1,6 @@
+---
+title: "Session-based User ID"
+type: "exercise"
+description: "Walkthrough of how to build a basic user ID system that stores information using sessions"
+tags: "sinatra, sessions, cookies"
+

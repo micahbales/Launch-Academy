@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sessions Authentication</title>
+  </head>
+
+  <body class="clearfix">
+    <header>
+      <h1>Simple User Authentication</h1>
+    </header>
+
+    <% if session[:username] %>
+      <h2>Saved User Info</h2>
+      Hello, <%= session[:username] %>!
+      
+      <form action="/codeword" method="post">
+        <div class="form-group">
+         <label for="entered_code_word">To view your message, please enter your code word: </label>
+         <input type="text" id="entered_code_word" name="entered_code_word" minlength="3" maxlength="20" required>
+        </div>
+
+        <div class="form-group">
+          <input type="submit">
+        </div>
+      </form>
+
+      <p>
+        <a href="/reset">Reset User Info</a>
+      </p>
+    <% else %> 
+      <%= erb :form %>
+    <% end %>
+  </body>
+</html>

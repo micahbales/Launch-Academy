@@ -1,0 +1,5 @@
+---
+title: "Acceptance Test the TV Guide"
+type: "challenge"
+description: "Pass and write acceptances tests"
+tags: "acceptance-testing, capybara, testing"

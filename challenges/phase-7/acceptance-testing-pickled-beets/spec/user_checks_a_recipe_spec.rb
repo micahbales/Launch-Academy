@@ -13,8 +13,8 @@ feature "User checks a recipe's deliciousness", %(
       sent to a "results" page telling me that the recipe is not delicious
   [x] From the "results" page, I am able to click a link bringing me back to
       the home page
-  [ ] If I submit a blank entry to the form, I am brought to an error page
-  [ ] From the error page, I can click a link bringing me back to the home page
+  [x] If I submit a blank entry to the form, I am brought to an error page
+  [x] From the error page, I can click a link bringing me back to the home page
 
 ) do
 

@@ -1,0 +1,15 @@
+<h1>InSlackerator - News Aggregator</h1>
+<h2>The Latest Articles</h2>
+<ol>
+  <% @articles.each_with_index do |article, index| %>
+    <li>
+      <ul>
+        <li><span id="article_name">Article:</span> <%= @articles_name[index] %></li>
+        <li><span id="article_url">URL:</span> <a href="<%= @articles_url[index] %>" target="_blank"><%= @articles_url[index] %></a></li>
+        <li><span id="article_description">Description:</span> <%= @articles_description[index] %></li>
+      </ul>
+    </li>
+  <% end %>
+</ol>
+
+<h3><a href="/articles/new">Submit a Story!</a></h3>

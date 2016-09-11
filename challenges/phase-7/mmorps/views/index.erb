@@ -1,0 +1,28 @@
+<h1>MMORPS</h1>
+
+<h4>Player Score</h4>
+<p>Human: <%= @user_wins %></p>
+<p>Computer: <%= @computer_wins %></p>
+
+<% if !@winner %>
+
+<h2>Choose!</h2>
+
+<form action="/selection" method="post">
+  <input type="Submit" id="rock" name="selection" value="Rock">
+  <input type="Submit" id="paper" name="selection" value="Paper">
+  <input type="Submit" id="scissors" name="selection" value="Scissors">
+</form>
+
+<p><% if @player_choice && @computer_choice %>Player picks <%= @player_choice %>. Computer picks <%= @computer_choice %>. <% end %> <%= @message %></p>
+
+<% else %>
+
+<p>Player picked <%= @player_choice %>. Computer picked <%= @computer_choice %>.</p>
+<p><%= @winner %> won the match! Play again?</p>
+
+<form action="/" method="get">
+  <input type="Submit" id="rock" name="selection" value="New Game">
+</form>
+
+<% end %>

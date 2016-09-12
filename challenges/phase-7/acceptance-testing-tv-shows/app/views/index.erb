@@ -1,1 +1,6 @@
 <h1>List of Shows</h1>
+<% CSV.foreach("television-shows.csv", {:headers=>:first_row}) do |row| %>
+    <p><%= row[0] %> (<%= row[1] %>) first aired in <%= row[2] %> and is <%= row[4] %> by genre.</p>
+    <p>Synopsis: <%= row[3] %></p>
+<% end %>
+<h3><a href="/new">Add more shows!</a></h3>

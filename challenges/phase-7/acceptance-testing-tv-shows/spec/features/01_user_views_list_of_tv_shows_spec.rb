@@ -4,7 +4,7 @@ require "spec_helper"
 # So I can keep track and share all my favorite shows
 #
 # Acceptance Criteria:
-# [] I can see the names and networks of all TV shows that have been added
+# [X] I can see the names and networks of all TV shows that have been added
 
 
 feature "user views list of TV shows" do

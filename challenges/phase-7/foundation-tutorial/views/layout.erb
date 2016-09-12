@@ -5,14 +5,35 @@
     <title>Foundation Funtimes</title>
 
     <!-- stylesheets -->
+    <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="stylesheets/style.css">
   </head>
   <body>
+    <div class="top-bar">
 
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">My Website</li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
     <!-- main content -->
-    <%= yield %>
+    <div class="row column">
+      <%= yield %>
+    </div>
 
     <!-- javascript -->
-
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

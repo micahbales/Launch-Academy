@@ -8,6 +8,8 @@ use Rack::Session::Cookie, {
   expire_after: 86400
 }
 
+binding.pry
+
 set :views, File.join(File.dirname(__FILE__), "app/views")
 
 get "/television_shows" do

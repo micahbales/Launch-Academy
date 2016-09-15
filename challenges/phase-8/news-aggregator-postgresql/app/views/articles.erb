@@ -1,0 +1,14 @@
+<h2>The Latest Articles</h2>
+<ol>
+  <% @articles.each do |article| %>
+    <li>
+      <ul>
+        <li><span id="name">Title:</span> <%= article.title %></li>
+        <li><span id="url">URL:</span> <a href="<%= article.url %>" target="_blank"><%= article.url %></a></li>
+        <li><span id="description">Description:</span> <%= article.description %></li>
+      </ul>
+    </li>
+  <% end %>
+</ol>
+
+<h3><a href="/articles/new">Submit a Story!</a></h3>

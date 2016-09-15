@@ -1,0 +1,14 @@
+<h1>Got a Super-Exciting Story to Tell?</h1>
+<% @article.errors.each do |error| %>
+  <h3><%= error %></h3>
+<% end %>
+
+<form action="/articles" method="post">
+  <label>Share Here!</label>
+  <label for="title"><input type="text" id="title" name="title" value="<%= @article.title %>"></label>
+  <label for="url"><input type="text" id="url" name="url" value="<%= @article.url %>"></label>
+  <label for="description"><input type="text" id="description" name="description" value="<%= @article.description %>"></label>
+
+  <label for="submit"><input type="submit" id="submit" value="Submit"></label>
+
+</form>

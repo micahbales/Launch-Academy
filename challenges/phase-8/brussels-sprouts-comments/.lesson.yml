@@ -1,0 +1,7 @@
+---
+title: "Brussels Sprouts Recipe Comments"
+type: "exercise"
+description: "Implement primary and foreign keys to create associations between two tables"
+tags: "sql, schema"
+ignore:
+- "brussels-sprouts-comments.md"

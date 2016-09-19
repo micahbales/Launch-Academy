@@ -1,0 +1,10 @@
+<h1><%= @movie[0]["title"] %></h1>
+<p>Filmed in <%= @movie[0]["year"] %>, <%= @movie[0]["title"] %> is a <%= @movie[0]["genre"] %>, from <%= @movie[0]["studio"] %></p>
+
+<h3>The cast of <%= @movie[0]["title"] %> includes:</h3>
+
+<ul>
+<% @actors.each do |actor| %>
+  <li><a href="/actors/<%= actor["id"] %>"><%= actor["name"] %></a>, as <%= actor["role"] %></li>
+<% end %>
+</ul>

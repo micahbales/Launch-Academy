@@ -3,11 +3,30 @@ class Actors
   def initialize
   end
 
-  def self.all
+  def self.arrange(order_by: "name", order: "ASC", limit: 20, offset: 0)
 
     db_connection do |conn|
       get_info = %Q(
-      SELECT name, id FROM actors ORDER BY name ASC;
+      SELECT actors.name AS name, actors.id AS id
+      FROM actors
+      JOIN cast_members ON actors.id = cast_members.actor_id
+      ORDER BY actors.#{order_by} #{order}
+      LIMIT #{limit}
+      OFFSET #{offset};
+      )
+      conn.exec_params(get_info).to_a
+    end
+  end
+
+  def self.arrange(order_by: "name", order: "ASC", limit: 20, offset: 0)
+
+    db_connection do |conn|
+      get_info = %Q(
+      SELECT name, id
+      FROM actors
+      ORDER BY #{order_by} #{order}
+      LIMIT #{limit}
+      OFFSET #{offset};
       )
       actors = conn.exec(get_info).to_a
       array = []
@@ -43,6 +62,20 @@ class Actors
       )
       results = conn.exec_params(get_info)
       results.to_a[0]["name"]
+    end
+  end
+
+  def self.find_actor_by_name(name)
+
+    db_connection do |conn|
+      get_info = %Q(
+      SELECT actors.name AS name, actors.id AS id, cast_members.character AS role, movies.title AS title
+      FROM actors
+      JOIN cast_members ON actors.id = cast_members.actor_id
+      JOIN movies ON movies.id = cast_members.movie_id
+      WHERE actors.name = '#{name}';
+      )
+      conn.exec_params(get_info).to_a
     end
   end
 

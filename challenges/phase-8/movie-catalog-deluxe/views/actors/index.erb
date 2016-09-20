@@ -1,7 +1,23 @@
 <h1>Famous Actors</h1>
 
+<form action="/actors" method="post">
+
+  <label for="actor"><input type="text" id="actor" name="actor" value="Search for an Actor"></label>
+
+  <label for="submit"><input type="submit" id="submit"</label>
+
+</form>
+
 <ul>
 <% @actors.each do |actor| %>
-  <li><a href="/actors/<%= actor[:id] %>"><%= actor[:name] %></a></li>
+
+  <li><a href="/actors/<%= actor[:id] || actor["id"] %>"><%= actor[:name] || actor["name"] %></a></li>
 <% end %>
 </ul>
+
+  <% if @current_page < 163 %>
+  <h3><a href="/actors?page=<%= @current_page.to_i + 1 %>">Next 20 Results</a></h3>
+  <% end %>
+  <% if @current_page != 1 %>
+  <h3><a href="/actors?page=<%= @current_page - 1 %>">Previous 20 Results</a></h3>
+  <% end %>

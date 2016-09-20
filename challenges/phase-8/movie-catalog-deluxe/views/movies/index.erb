@@ -1,7 +1,23 @@
 <h1>Movies</h1>
 
+<form action="/movies" method="post">
+
+  <label for="movie"><input type="text" id="movie" name="movie" value="Search for a Movie"></label>
+
+  <label for="submit"><input type="submit" id="submit"</label>
+
+</form>
+
 <ul>
 <% @movies.each do |movie| %>
-  <li><a href="/movies/<%= movie["id"] %>"><%= movie["title"] %></a>, <%= movie["year"] %>, <%= movie["rating"] %>, <%= movie["name"] %>, <%= movie["studio"] %></li>
+
+  <li><a href="/movies/<%= movie["movies_id"] %>"><%= movie["title"] %></a>, <%= movie["year"] %>, <%= movie["rating"] %>, <%= movie["name"] %>, <%= movie["studio"] %></li>
 <% end %>
 </ul>
+
+  <% if @current_page < 163 %>
+  <h3><a href="/movies?page=<%= @current_page.to_i + 1 %>">Next 20 Results</a></h3>
+  <% end %>
+  <% if @current_page != 1 %>
+  <h3><a href="/movies?page=<%= @current_page - 1 %>">Previous 20 Results</a></h3>
+  <% end %>

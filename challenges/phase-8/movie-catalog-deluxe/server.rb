@@ -21,16 +21,24 @@ def db_connection
   end
 end
 
-get "/actors/" do
+get "/actors" do
 
-  @actors = Actors.all
+  opts = {}
+
+  opts[:order_by] = params[:order_by] unless params[:order_by].nil?
+  opts[:order] = params[:order] unless params[:order].nil?
+  opts[:limit] = params[:limit] unless params[:limit].nil?
+  @current_page = (params[:page] || 1).to_i
+  opts[:offset] = (@current_page - 1) * 20
+
+  @actors = Actors.arrange(opts)
 
   erb :"actors/index"
 
 end
 
-get "/actors" do
-  redirect "/actors/"
+get "/actors/" do
+  redirect "/actors"
 end
 
 get "/actors/:id" do
@@ -46,16 +54,24 @@ get "/actors/:id/" do
   redirect "/actors/:id"
 end
 
-get "/movies/" do
+get "/movies" do
 
-  @movies = Movies.all
+  opts = {}
+
+  opts[:order_by] = params[:order_by] unless params[:order_by].nil?
+  opts[:order] = params[:order] unless params[:order].nil?
+  opts[:limit] = params[:limit] unless params[:limit].nil?
+  @current_page = (params[:page] || 1).to_i
+  opts[:offset] = (@current_page - 1) * 20
+
+  @movies = Movies.arrange(opts)
 
   erb :"movies/index"
 
 end
 
-get "/movies" do
-  redirect "/movies/"
+get "/movies/" do
+  redirect "/movies"
 end
 
 get "/movies/:id" do
@@ -69,4 +85,22 @@ end
 
 get "/movies/:id/" do
   redirect "/movies/:id"
+end
+
+post "/movies" do
+
+  @current_page = (params[:page] || 1).to_i
+  @movies = Movies.find_movie_by_title(params[:movie])
+
+  erb :"movies/index"
+
+end
+
+post "/actors" do
+
+  @current_page = (params[:page] || 1).to_i
+  @actors = Actors.find_actor_by_name(params[:actor])
+
+  erb :"actors/index"
+
 end

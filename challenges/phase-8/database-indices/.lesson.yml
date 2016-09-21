@@ -1,0 +1,10 @@
+---
+title: "Database Indices"
+type: "challenge"
+description: "Use database indices to speed up SQL queries"
+tags: "sql, indexing"
+ignore:
+- "database-indices.md"
+- "ingredients-100k.sql"
+- "ingredients-1m.sql"
+- "ingredients.tar.bz2"

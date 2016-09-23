@@ -1,0 +1,18 @@
+---
+title: "Nebula"
+type: "exercise"
+description: >
+  A Test-Based Framework for JavaScript Fundamentals.
+tags: "javascript, tdd"
+ignore:
+- "data/"
+- "lib/"
+- "node_modules/"
+- "tests/"
+- ".jshintrc"
+- "CHANGELOG.md"
+- "dark-nebula.md"
+- "Gruntfile.js"
+- "help.txt"
+- "index.js"
+- "package.json"

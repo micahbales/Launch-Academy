@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+
+  <link rel="stylesheet" href="/node_modules/mocha/mocha.css" />
+
+</head>
+<body>
+  <div id="mocha"></div>
+  <div id="test"></div>
+
+  <!-- load deps -->
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script src="/node_modules/underscore/underscore.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+  <!-- run tests -->
+  <script>
+    window.expect = chai.expect;
+    mocha.setup('bdd');
+    window.onload = function() {
+      mocha.run()
+    };
+  </script>
+
+  <!-- load tests and answers -->
+
+  <h6>Core Challenge</h6>
+
+  <script src="/tests/app/core/arrays.js"></script>
+  <script src="/app/core/arrays.js"></script>
+
+  <script src="/tests/app/core/strings.js"></script>
+  <script src="/app/core/strings.js"></script>
+
+  <script src="/tests/app/core/functions.js"></script>
+  <script src="/app/core/functions.js"></script>
+
+  <script src="/tests/app/core/regex.js"></script>
+  <script src="/app/core/regex.js"></script>
+
+  <script src="/tests/app/core/bestPractices.js"></script>
+  <script src="/app/core/bestPractices.js"></script>
+
+  <h6>Optional Challenge</h6>
+
+  <script src="/tests/app/optional/objects.js"></script>
+  <script src="/app/optional/objects.js"></script>
+
+  <script src="/tests/app/optional/recursion.js"></script>
+  <script src="/app/optional/recursion.js"></script>
+
+  <!-- livereload snippet -->
+  <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

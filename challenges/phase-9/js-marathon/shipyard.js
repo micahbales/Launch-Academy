@@ -87,7 +87,7 @@ function Fleet() {
 }
 
 shuttleFleet = new Fleet;
-shuttleNames = ["Atlantis", "Challenger", "Columbia", "Enterprise", "Discovery"];
+shuttleNames = ["Atlantis", "Challenger", "Columbia", "Enterprise", "Discovery", "Endeavor"];
 for (var i = 0; i < shuttleNames.length; i++) {
   shuttleFleet.ships.push(new Ship(shuttleNames[i]));
 }

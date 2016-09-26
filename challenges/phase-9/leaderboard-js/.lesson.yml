@@ -1,0 +1,16 @@
+---
+title: "Leaderboard.js"
+type: "challenge"
+description: >
+  The NFL is trying to make a hip, lean, up-to-date-with-a-vengeance web
+  stack... and, as a result, they're switching to Javascript. Can you help
+  them again?
+tags: "javascript, jasmine"
+ignore:
+  - leaderboard-js.md
+  - lib/jasmine-2.4.1/boot.js
+  - lib/jasmine-2.4.1/console.js
+  - lib/jasmine-2.4.1/jasmine_favicon.png
+  - lib/jasmine-2.4.1/jasmine-html.js
+  - lib/jasmine-2.4.1/jasmine.css
+  - lib/jasmine-2.4.1/jasmine.js

@@ -1,0 +1,12 @@
+---
+title: "Launchbook jQuery"
+type: "challenge"
+description: "Practice manipulating the DOM with jQuery."
+tags: "jquery, dom"
+ignore:
+- "public/"
+- "views/"
+- "app.rb"
+- "Gemfile"
+- "Gemfile.lock"
+- "launchbook-jquery.md"

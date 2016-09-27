@@ -1,0 +1,45 @@
+.media {
+  display: block;
+}
+.media-img {
+  float:left;
+  margin-right:12px;
+}
+/**
+* Reversed image location (right instead of left).
+*/
+.media-img-rev {
+  float:right;
+  margin-left: 12px:
+}
+
+.media-img img,
+.media-img-rev img {
+  display:block;
+}
+
+.media-body {
+  overflow:hidden;
+}
+
+.media-body,
+.media-body > :last-child {
+  margin-bottom:0;
+}
+
+.post {
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: .5s;
+  max-height: 1000px;
+  margin-bottom: 24px;
+}
+
+.post-liked {
+  background: rgba(0, 140, 186, 0.2);
+}
+
+.post-hidden {
+  max-height: 0;
+  margin-bottom: 0;
+}

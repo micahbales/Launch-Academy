@@ -1,0 +1,12 @@
+---
+title: "Launchbook JS"
+type: "challenge"
+description: "Practice manipulating the DOM with JavaScript."
+tags: "javascript, dom"
+ignore:
+- "public/"
+- "views/"
+- "app.rb"
+- "Gemfile"
+- "Gemfile.lock"
+- "launchbook-js.md"

@@ -78,8 +78,11 @@ function getMyTeams(gameData) {
 };
 
 function outputTeamData(myTeams) {
-  console.log("Teams\n-----");
+  console.log("--------------------------------------------------");
+  console.log("| Name      Rank      Total Wins    Total Losses |");
   for (var i = 0; i < myTeams.length; i++) {
-    console.log("Name: " + myTeams[i].name + " Wins: " + myTeams[i].wins + " Losses: " + myTeams[i].losses + "\b");
+    console.log("| " + myTeams[i].name + "    "
+    +  i + "      " + "      " + myTeams[i].wins + "          " + myTeams[i].losses + "           | \b");
   }
+  console.log("--------------------------------------------------");
 };

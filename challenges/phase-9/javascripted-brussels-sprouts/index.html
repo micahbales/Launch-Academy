@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Evening JavaScripted Brussels Sprouts</title>
+
+    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
+    <style>
+      /* CSS GOES HERE
+       *
+       * Note: this is bad practice, we normally want to have this
+       * content in a separate file.
+       *
+       */
+
+      body {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      }
+
+      div.container {
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+
+      code {
+        background-color: LightGrey;
+        padding: 0.25rem 0.5rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Good Dishes</h2>
+      <ul id="dishes">
+        <li>Roasted Brussels Sprouts</li>
+      </ul>
+
+      <button id="click-for-more">Click for more.</button>
+
+      <hr />
+      <h2>Assignment Instructions</h2>
+      <ol id="assignment-instructions">
+        <li>
+          Open the JavaScript console in Chrome
+          <code>
+            Command + Option + J
+          </code>
+        </li>
+        <li>Write JavaScript and HTML to alter the page based on the assignment.</li>
+        <li>Add your code to the <code>&lt;script&gt;&lt;/script&gt;</code> tag in this page.</li>
+        <li><code>Command + R</code> to refresh the page.</li>
+      </ol>
+    </div>
+
+    <script>
+      /* JAVASCRIPT GOES HERE
+       *
+       * Note: this is bad practice, we normally want to have this
+       * content in a separate file.
+       *
+       */
+
+      // This is the array of data.
+      var dishes = [
+        "Roasted Brussels Sprouts",
+        "Truffle Salt Burrito",
+        "Vegan Philly Style Cheese Steak",
+        "Fresh Brussels Sprouts Soup",
+        "Split Pea Pizza with Cherry Tomatoes and Chocolate Shavings",
+        "Brussels Sprouts with Toasted Breadcrumbs, Parmesan, and Lemon",
+        "Cheesy Maple Roasted Brussels Sprouts and Broccoli with Dried Cherries",
+        "Parmesan Toast with Green Onions and Thyme",
+        "Hot Cheesy Roasted Brussels Sprouts Dip",
+        "Gazpacho with Lime and Potato Sauce",
+        "Pomegranate Roasted Brussels Sprouts with Red Grapes and Farro",
+        "Roasted Brussels Sprouts and Red Potato Salad",
+        "Smoked Gouda and Poppy Seed Crackers",
+        "Smoky Buttered Brussels Sprouts",
+        "Margherita Pizza with Mushrooms and Cantaloupe",
+        "Orange Glazed Vegan Chicken Cutlet",
+        "Sweet and Spicy Roasted Brussels Sprouts",
+        "Smoky Buttered Brussels Sprouts",
+        "Jelly Bean Ice Cream",
+        "Brussels Sprouts and Egg Salad with Hazelnuts"]
+
+      // Write your code below. Start by typing `dishes` in your browser console to see what the array contains.
+
+      var goodDishes = [];
+      var badDishes = [];
+
+      for (var i = 0; i < dishes.length; i++) {
+        if (dishes[i].includes('Brussels Sprouts')) {
+          goodDishes.push(dishes[i]);
+          console.log(dishes[i] + ": This contains the vegetable that we need.")
+        } else {
+          badDishes.push(dishes[i]);
+          console.log(dishes[i] + ": We don't care for this dish.")
+        }
+      };
+
+      var list = document.getElementsByTagName('ul')[0];
+
+      function listGoodDishes() {
+        for (var i = 1; i < goodDishes.length; i++) {
+          var li = document.createElement('li');
+          li.innerHTML = goodDishes[i];
+          list.appendChild(li);
+        }
+      }
+
+      document.getElementById('click-for-more').addEventListener("click", listGoodDishes, false);
+
+    </script>
+  </body>
+</html>

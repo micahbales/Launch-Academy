@@ -1,0 +1,8 @@
+---
+title: "JavaScripted Brussels Sprouts"
+type: "exercise"
+description: "An introduction to the basics of JavaScript syntax through Brussels Sprouts recipes"
+tags: "evening-exercise, javascript"
+ignore:
+- "javascripted-brussels-sprouts.md"
+- "solution.html"

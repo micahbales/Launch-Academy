@@ -1,0 +1,7 @@
+---
+title: "Brussels Sprouts Recipe Blog with ActiveRecord"
+type: "exercise"
+description: "Querying and association practice in ActiveRecord."
+tags: "sinatra, activerecord"
+ignore:
+- "ar-querying-associations.md"

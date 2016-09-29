@@ -1,0 +1,5 @@
+---
+title: "ActiveRecord Validations"
+type: "article"
+description: "Explore ActiveRecord Validations in the context of a Sinatra Application."
+tags: "activerecord, validations, sql"

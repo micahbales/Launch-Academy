@@ -1,0 +1,27 @@
+<h1>All the Lonely People</h1>
+
+<h4>(Where do they all come from?)</h4>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><%= contact.name %> - <%= contact.phone_number %> - (<a href="/contacts/<%= contact.id %>">More info</a>)</li>
+  <% end %>
+</ul>
+
+<% if @last_page != nil && @next_page != nil %>
+<h4><a href="/contacts?page=<%= @last_page%>">Previous Page</a>   |   <a href="/contacts?page=<%= @next_page%>">Next Page</a></h4>
+<% elsif @last_page == nil %>
+<h4><a href="/contacts?page=<%= @next_page%>">Next Page</a></h4>
+<% elsif @next_page == nil %>
+<h4><a href="/contacts">Back to First Page</a></h4>
+<% end %>
+
+<h3>Search by First AND/OR Last Name</h3>
+
+<form action="/search" method="post">
+
+  <input type="text" name="first_name" id="first_name" value="FIRST NAME" />
+  <input type="text" name="last_name" id="last_name" value="LAST NAME" />
+  <button type="submit" id="submit">Submit</button>
+
+</form>

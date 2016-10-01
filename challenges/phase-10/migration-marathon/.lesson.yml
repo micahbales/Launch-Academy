@@ -1,0 +1,5 @@
+---
+title: "Migration Marathon"
+type: "challenge"
+description: "Practice your skills in constructing and utilizing migrations."
+tags: "sinatra, activerecord"

@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
-require 'pry'
 
 require_relative 'models/contact'
 also_reload 'models/contact'
@@ -45,4 +44,17 @@ last_name = params[:last_name]
 @contacts = all_contacts.where("first_name = ? OR last_name = ?", first_name, last_name)
 erb :'contacts/index'
 
+end
+
+get '/add' do
+  erb :add
+end
+
+post '/add' do
+  first_name = params[:first_name]
+  last_name = params[:last_name]
+  phone_number = params[:phone_number]
+  Contact.create(first_name: first_name, last_name: last_name, phone_number: phone_number)
+  @new_person = Contact.all.last.name
+  erb :add
 end

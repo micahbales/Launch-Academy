@@ -34,3 +34,10 @@ post "/television_shows" do
     erb :new
   end
 end
+
+get "/television_shows/:id/edit" do
+  id = params[:id]
+  @show = TelevisionShow.find(id)
+  @show.update(params[:television_show])
+  redirect "/television_shows"
+end

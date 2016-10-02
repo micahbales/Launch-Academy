@@ -32,19 +32,19 @@ feature "user adds a new TV show" do
     fill_in('title', :with => 'House of Cards')
     fill_in('network', :with => 'Netflix')
     click_button('Add TV Show')
-    expect(page).to have_content('Add Show')
+    expect(page).to have_content("Starting year can't be blank")
 
     visit('/television_shows/new')
     fill_in('title', :with => 'House of Cards')
     fill_in('starting_year', :with => '1997')
     click_button('Add TV Show')
-    expect(page).to have_content('Add Show')
+    expect(page).to have_content("Network can't be blank")
 
     visit('/television_shows/new')
     fill_in('network', :with => 'Netflix')
     fill_in('starting_year', :with => '1997')
     click_button('Add TV Show')
-    expect(page).to have_content('Add Show')
+    expect(page).to have_content("Show Title can't be blank")
 
   end
 end

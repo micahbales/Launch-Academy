@@ -52,13 +52,13 @@ feature "user views list of TV shows" do
         genre: "Comedy"
       })
 
-    visit('/television_shows/4')
+    visit("/television_shows/#{game_of_thrones.id}")
     expect(page).to have_content("Game of Thrones")
     expect(page).to have_content("Fantasy")
     expect(page).to have_content("2011")
     expect(page).to have_content("HBO")
 
-    visit ('/television_shows/5')
+    visit ("/television_shows/#{married_with_children.id}")
     expect(page).to have_content("Married... with Children")
     expect(page).to have_content("Fox")
     expect(page).to have_content("1987")

@@ -68,12 +68,23 @@ feature "user views list of TV shows" do
   end
 
   scenario "view details for a TV show with missing information" do
-    game_of_thrones = TelevisionShow.create!({
-        title: "Game of Thrones", network: "HBO",
-        starting_year: 2011, genre: "Fantasy"
-      })
 
-    visit('/television_shows/6')
-    expect(page).to have_content("2011 - G")
+    visit('/television_shows/new')
+    fill_in('network', :with => 'Netflix')
+    fill_in('starting_year', :with => '1997')
+    click_button('Add TV Show')
+    expect(page).to have_content("Title can't be blank")
+
+    visit('/television_shows/new')
+    fill_in('title', :with => 'House of Cards')
+    fill_in('starting_year', :with => '1997')
+    click_button('Add TV Show')
+    expect(page).to have_content("Network can't be blank")
+
+    visit('/television_shows/new')
+    fill_in('title', :with => 'House of Cards')
+    fill_in('network', :with => 'Netflix')
+    click_button('Add TV Show')
+    expect(page).to have_content("Starting year can't be blank")
   end
 end

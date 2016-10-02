@@ -1,5 +1,11 @@
 <h1>Add Show</h1>
 
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <h4><%= error %></h4>
+  <% end %>
+<% end %>
+
 <form action="/television_shows" method="post">
   <div>
     <label for="title">Title:</label>

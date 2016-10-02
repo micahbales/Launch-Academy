@@ -30,6 +30,7 @@ post "/television_shows" do
   if @show.save
     redirect "/television_shows"
   else
+    @errors = @show.errors.full_messages
     erb :new
   end
 end

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Meetups</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+  </head>
+  <body>
+
+    <div class="top-bar">
+      <div class="container">
+        <a class="logo" href="/">Meetups in Space</a>
+
+        <ul class="top-bar-section">
+          <li><a href="/meetups/new">Create a Meetup</a></li>
+          
+            <li>Signed in as jarlax1</a></li>
+            <li><a href="/sign_out">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </div>
+
+    
+      <div class="flash">
+        <div class="container">
+          Uh-oh! Please fill in all fields to create your meetup!
+        </div>
+      </div>
+    
+
+    <div class="container">
+      <h1>What Will You Call Your Meetup?</h1>
+  <form action="/meetups/new" method="post">
+    <div id="title">
+      <h3 class="form-field" >Title</h3>
+      <input type="text" name="title" id="title" value=""/>
+    </div>
+    <div id="location">
+      <h3 class="form-field" >Location</h3>
+      <input type="text" name="location" id="location" value="My hometown"/>
+    </div>
+    <div id="description">
+      <h3 class="form-field" >Description</h3>
+      <input type="text" name="description" id="description" value="The best meetup ever!"/>
+    </div>
+    <div id="meetup-submit-button">
+      <button type="submit" id="submit">Submit</button>
+    </div>
+  </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>

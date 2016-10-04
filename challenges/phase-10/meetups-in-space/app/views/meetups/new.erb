@@ -1,0 +1,22 @@
+<h1>What Will You Call Your Meetup?</h1>
+<% if current_user %>
+  <form action="/meetups/new" method="post">
+    <div id="title">
+      <h3 class="form-field" >Title</h3>
+      <input type="text" name="title" id="title" value="<%= session[:title] %>"/>
+    </div>
+    <div id="location">
+      <h3 class="form-field" >Location</h3>
+      <input type="text" name="location" id="location" value="<%= session[:location] %>"/>
+    </div>
+    <div id="description">
+      <h3 class="form-field" >Description</h3>
+      <input type="text" name="description" id="description" value="<%= session[:description] %>"/>
+    </div>
+    <div id="meetup-submit-button">
+      <button type="submit" id="submit">Submit</button>
+    </div>
+  </form>
+<% else %>
+  <h3>You're not signed in! You should do that.</h3>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Meetups</h1>
+
+<ul>
+<% if @meetups %>
+  <% @meetups.each do |meetup| %>
+    <li><a href="/meetups/<%= meetup.id %>"><%= meetup.title %> - <%= meetup.location %></a></li>
+  <% end %>
+<% end %>
+</ul>
+
+<!-- link to meetups new page -->

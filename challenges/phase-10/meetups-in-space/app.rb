@@ -59,6 +59,28 @@ end
 
 get '/meetups/:id' do
   @meetup = Meetup.find(params[:id])
+  @users = @meetup.users
+
+  #
+  # @user = User.find(1)
+  # @user.meetups
+  #
+  # -------------------------------------------
+  # class Recipe
+  #   has_many :comments
+  # end
+  #
+  #
+  # class Comment
+  #   belongs_to :recipe
+  #   # has a recipe_id column
+  # end
+  #
+  #
+  # r = Recipe.find(67)
+  # comments = Comment.where(recipe_id: 67)
+  # comments = r.comments
+  #
 
   erb :'meetups/show'
 end
@@ -69,7 +91,7 @@ post '/meetups/new' do
   session[:location] = params[:location]
   session[:description] = params[:description]
 
-  new_meetup = Meetup.new(title: session[:title], location: session[:location], description: session[:description])
+  new_meetup = Meetup.new(title: session[:title], location: session[:location], description: session[:description], creator: current_user.username)
 
   if new_meetup.save
     flash[:notice] = "Congratulations! You've created a new meetup!"

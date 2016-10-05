@@ -47,9 +47,15 @@ feature "user creates meetup" do
     click_button "Submit"
 
     expect(page).to have_content "Uh-oh! Please fill in all fields to create your meetup!"
-    find_field('location').value.should eq "My hometown"
-    find_field('description').value.should eq "The best meetup ever!"
+    location = find_field('location').value
+    expect(location).to eq "My hometown"
+    description = find_field('description').value
+    expect(description).to eq "The best meetup ever!"
   end
+
+  #  ^^^
+  # expect{find_field('location').value}.to eq "My hometown"
+  # expect{find_field('description').value}.to eq "The best meetup ever!"
 
   scenario "anonymous user un-successfully tries to create new meetup" do
 

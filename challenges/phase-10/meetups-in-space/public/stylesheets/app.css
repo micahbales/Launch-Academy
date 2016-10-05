@@ -47,6 +47,19 @@ a:visited {
   color: #fff;
 }
 
+#user-list {
+  float:right;
+}
+
+#user-list li {
+  list-style-type: none;
+}
+
+.avatar-small {
+  height: 50px;
+  width: 50px;
+}
+
 #meetup-submit-button {
   margin-top: 25px;
   margin-left: 50px;

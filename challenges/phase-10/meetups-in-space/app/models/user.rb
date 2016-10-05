@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   end
 
   has_many :meetups, through: :meetup_users
+  has_many :meetup_users
 end

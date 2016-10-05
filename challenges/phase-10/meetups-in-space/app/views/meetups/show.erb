@@ -4,6 +4,8 @@
 <h3>Location: <%= @meetup.location %></h3>
 <h3>Description: <%= @meetup.description %></h3>
 <h3>Creator: <%= @meetup.creator %></h3>
+<form action="/meetups/<%= @meetup.id %>" method="post">
+<button id="join_meetup">Join</button>
 </div>
 
 <div id="user-list">

@@ -106,6 +106,7 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    vcr (3.0.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -130,6 +131,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-flash
+  vcr
 
 BUNDLED WITH
    1.12.0

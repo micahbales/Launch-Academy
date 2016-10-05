@@ -12,35 +12,24 @@ require "spec_helper"
 
 feature "User joins meetup" do
 
-  let(:meetup) do
-    Meetup.create(
-    title: 'Free Code Camp DC',
-    location: 'Washington, DC',
-    description: 'Learning full-stack Javascript together',
-    creator: 'Quincy Larson'
-    )
-  end
+  let(:meetup_1) { Meetup.create(title: "Free Code Camp", location: "Washington, DC", description: "Free Code, without the camp", creator: "Quincy Larson") }
 
-  let(:user) do
-    User.create(
-      provider: "github",
-      uid: "1",
-      username: "jarlax1",
-      email: "jarlax1@launchacademy.com",
-      avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400"
-    )
-  end
+  let(:micah) { User.create(provider: "github", uid: "0", username: "micahbales",
+  email: "micahbales@gmail.com",
+  avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400") }
 
-  xscenario "signed-in user clicks button to join" do
-    user
-    visit "/meetups/1"
+  let!(:joins) { MeetupUser.create(meetup: meetup_1, user: micah) }
+
+  scenario "signed-in user clicks button to join" do
+    current_user = micah
+    visit "/meetups/#{meetup_1.id}"
     click_button "Join"
     expect(page).to have_content "Thanks for joining this meetup!"
 
   end
 
-  xscenario "anonymous user clicks button to join" do
-    visit "/meetups/10"
+  scenario "anonymous user clicks button to join" do
+    visit "/meetups/#{meetup_1.id}"
     click_button "Join"
     expect(page).to have_content "You need to be signed in to join this meetup"
   end

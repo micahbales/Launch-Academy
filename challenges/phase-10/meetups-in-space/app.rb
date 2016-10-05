@@ -1,6 +1,5 @@
 require 'sinatra'
 require_relative 'config/application'
-require 'pry'
 
 set :bind, '0.0.0.0'  # bind to all interfaces
 
@@ -101,4 +100,20 @@ post '/meetups/new' do
     flash[:notice] = "Uh-oh! Please fill in all fields to create your meetup!"
     redirect :'meetups/new'
   end
+end
+
+post '/meetups/:id' do
+  @meetup = Meetup.find(params[:id])
+  @users = @meetup.users
+
+  if current_user && @users.exists?(current_user.id)
+    flash.now[:notice] = "You're already a member of this meetup!"
+  elsif current_user
+    flash.now[:notice] = "Thanks for joining this meetup!"
+    MeetupUser.create(user_id: current_user.id, meetup_id: @meetup.id)
+  else
+    flash.now[:notice] = "You need to be signed in to join this meetup"
+  end
+
+  erb :'meetups/show'
 end

@@ -1,0 +1,19 @@
+<h1><%= @project.name %></h1>
+
+<h3><%= @project.description || "No description provided." %></h3>
+
+<h3>Working on <%= @project.name %>:</h3>
+
+<ul>
+  <% @projectusers.each do |projectuser| %>
+    <li><%= projectuser.first_name %> <%= projectuser.last_name %> <% if projectuser.email %>(<%= projectuser.email %>)<% end %></li>
+  <% end %>
+</ul>
+
+<h3>Tasks for this project:<h3>
+
+<ul>
+  <% @projecttasks.each do |projecttask| %>
+    <li><%= projecttask.name %> <% if projecttask.user %> (Assigned to: <%= projecttask.user.first_name %> <%= projecttask.user.last_name %>) <% end %></li>
+  <% end %>
+</ul>

@@ -21,7 +21,7 @@ feature "User joins meetup" do
   let!(:joins) { MeetupUser.create(meetup: meetup_1, user: micah) }
 
   scenario "signed-in user clicks button to join" do
-    current_user = micah
+    sign_in_as micah
     visit "/meetups/#{meetup_1.id}"
     click_button "Join"
     expect(page).to have_content "Thanks for joining this meetup!"

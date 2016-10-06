@@ -107,7 +107,7 @@ post '/meetups/:id' do
   @users = @meetup.users
 
   if current_user && @users.exists?(current_user.id)
-    flash.now[:notice] = "You're already a member of this meetup!"
+    flash.now[:notice] = "Thanks for joining this meetup!"
   elsif current_user
     flash.now[:notice] = "Thanks for joining this meetup!"
     MeetupUser.create(user_id: current_user.id, meetup_id: @meetup.id)

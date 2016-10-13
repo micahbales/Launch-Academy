@@ -13,20 +13,19 @@ require 'rails_helper'
 feature "user adds comment to post" do
 
   let!(:post1) { Post.create(title: "Problems setting up Node.js server - Is this title long enough now?", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae convallis eros. Vivamus fermentum turpis vitae diam rhoncus pulvinar nec ut erat. Phasellus sollicitudin lacinia ipsum, eu vulputate nibh venenatis sit amet. Donec tortor augue, sagittis in sollicitudin at, fermentum a quam.") }
+  scenario "provides valid description" do
 
-  xscenario "provides valid description" do
-
-    visit "/posts/#{post1}"
-    fill_in("description", with: "Pellentesque a velit accumsan, cursus urna in, fermentum sem.")
+    visit "/posts/#{post1.id}"
+    fill_in("Description", with: "Pellentesque a velit accumsan, cursus urna in, fermentum sem.")
     click_button("Submit")
     expect(page).to have_content "Pellentesque a velit accumsan, cursus urna in, fermentum sem."
   end
 
-  xscenario "provides invalid description" do
+  scenario "provides invalid description" do
 
-    visit "/posts/#{post1}"
-    fill_in("description", with: "Pellentesque a velit accumsan, cursus urna in, fermentum sem.")
+    visit "/posts/#{post1.id}"
+    fill_in("Description", with: "Pellentesque a velit accumsan.")
     click_button("Submit")
-    expect(page).to have_content "Comments must be at least 50 characters long"
+    expect(page).to have_content "Comment must include at least 50 characters"
   end
 end

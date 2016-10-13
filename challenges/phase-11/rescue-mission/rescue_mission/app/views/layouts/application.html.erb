@@ -10,6 +10,7 @@
 
   <body>
     <%= yield %>
+    <br />
     <% flash.each do |key, value| %>
       <%= value %>
     <% end %>

@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   def new
@@ -17,9 +18,9 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'Article was successfully created.'
     else
-      flash[:error] = "Titles must be a minimum of 40 characters; descriptions a minimum of 150"
+      flash[:alert] = "Titles must be a minimum of 40 characters; descriptions a minimum of 150"
       render action: 'new'
-      flash[:error] = nil
+      flash[:alert] = nil
     end
   end
 

@@ -17,9 +17,11 @@
 <% end %>
 
 <% if @comments %>
-  <ul>
+  <ol>
     <% @comments.each do |comment| %>
-      <li><%= comment.id %>: <%= comment.description %></li>
+      <li><%= comment.description %></li><br />
     <% end %>
   </ul>
+<% else %>
+<h3>No comments yet! Be the first to add one!</h3>
 <% end %>

@@ -5,3 +5,7 @@
     <li><%= link_to post.title, post_path(post) %></li>
   <% end %>
 </ul>
+
+<form action="/posts/new">
+  <button name="new_post" type="submit">New Post</button>
+</form>

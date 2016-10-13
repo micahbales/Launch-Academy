@@ -36,6 +36,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'pry'
+  gem 'launchy'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 group :development do

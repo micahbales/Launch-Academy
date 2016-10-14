@@ -12,36 +12,36 @@ require 'rails_helper'
 
 feature "user edits question" do
 
-  let!(:post1) { Post.create(title: "Problems setting up Node.js server", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae convallis eros. Vivamus fermentum turpis vitae diam rhoncus pulvinar nec ut erat. Phasellus sollicitudin lacinia ipsum, eu vulputate nibh venenatis sit amet. Donec tortor augue, sagittis in sollicitudin at, fermentum a quam.") }
-  let!(:comment1) { Comment.create(content: "I enjoy ham sandwiches, when the weather is not too cold.", post_id: post1.id) }
+  let!(:post1) { Post.create(title: "Problems setting up Node.js server - let's just make sure this title is long enough pass validation", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae convallis eros. Vivamus fermentum turpis vitae diam rhoncus pulvinar nec ut erat. Phasellus sollicitudin lacinia ipsum, eu vulputate nibh venenatis sit amet. Donec tortor augue, sagittis in sollicitudin at, fermentum a quam.") }
+  let!(:comment1) { Comment.create(description: "I enjoy ham sandwiches, when the weather is not too cold.", post_id: post1.id) }
 
-  xscenario "successfully edits question" do
+  scenario "successfully edits question" do
 
-    visit "/posts/#{post1}"
-    click_link "Edit Question"
-    expect(page).to have_content "Edit Question: #{post1.title}"
-    fill_in("title", with: "I have no problems setting up my Node.js server!")
-    fill_in("description", with: "I stopped thinking about ham sandwiches and instead spent my time practicing with Nodeschool. Worked like a charm.")
+    visit "/posts/#{post1.id}"
+    click_link "Edit Post"
+    expect(page).to have_content "Edit Post: #{post1.title}"
+    fill_in("Title", with: "I have no problems setting up my Node.js server - and I know this new title will also pass validation!")
+    fill_in("Description", with: "I stopped thinking about ham sandwiches and instead spent my time practicing with Nodeschool. Worked like a charm.")
     click_button("Submit")
-    expect(page).to have_content "I have no problems setting up my Node.js server!"
+    expect(page).to have_content "I have no problems setting up my Node.js server - and I know this new title will also pass validation!"
   end
 
-  xscenario "fails to provide valid title" do
-    visit "/posts/#{post1}"
-    click_link "Edit Question"
-    expect(page).to have_content "Edit Question: #{post1.title}"
-    fill_in("title", with: "Yo.")
-    fill_in("description", with: "I stopped thinking about ham sandwiches and instead spent my time practicing with Nodeschool. Worked like a charm.")
+  scenario "fails to provide valid title" do
+    visit "/posts/#{post1.id}"
+    click_link "Edit Post"
+    expect(page).to have_content "Edit Post: #{post1.title}"
+    fill_in("Title", with: "Yo.")
+    fill_in("Description", with: "I stopped thinking about ham sandwiches and instead spent my time practicing with Nodeschool. Worked like a charm.")
     click_button("Submit")
     expect(page).to have_content "Titles must be a minimum of 40 characters; descriptions a minimum of 150"
   end
 
-  xscenario "fails to provide valid description" do
-    visit "/posts/#{post1}"
-    click_link "Edit Question"
-    expect(page).to have_content "Edit Question: #{post1.title}"
-    fill_in("title", with: "I have no problems setting up my Node.js server!")
-    fill_in("description", with: "HAM. SANDWICH.")
+  scenario "fails to provide valid description" do
+    visit "/posts/#{post1.id}"
+    click_link "Edit Post"
+    expect(page).to have_content "Edit Post: #{post1.title}"
+    fill_in("Title", with: "I have no problems setting up my Node.js server - and I know this new title will also pass validation!")
+    fill_in("Description", with: "HAM. SANDWICH.")
     click_button("Submit")
     expect(page).to have_content "Titles must be a minimum of 40 characters; descriptions a minimum of 150"
   end

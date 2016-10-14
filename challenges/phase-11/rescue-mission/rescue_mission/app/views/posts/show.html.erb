@@ -1,0 +1,29 @@
+<h1><%= @post.title %></h1>
+
+<h3><%= @post.description %></h3>
+
+<p><%= link_to "Home", root_path %> || <%= link_to "Edit Post", edit_post_path(@post) %></p>
+
+<%= button_to "Delete Post", post_path(@post), method: :delete %>
+
+<hr>
+
+<h3>Share your comments:</h3>
+
+<%= form_for [@post, @post.comments.build] do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br />
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% if @comments %>
+  <ol>
+    <% @comments.each do |comment| %>
+      <li><%= comment.description %></li><br />
+    <% end %>
+  </ul>
+<% else %>
+  <h3>No comments yet! Be the first to add one!</h3>
+<% end %>

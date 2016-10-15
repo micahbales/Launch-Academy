@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="medium-2 columns">
+    <%= render 'movies/side_nav' %>
+  </div>
+
+  <div class="medium-10 columns">
+    <% @movies.each do |movie| %>
+
+      <div class="movie">
+
+        <%= render partial: 'movies/movie', locals: { movie: movie }  %>
+
+      </div>
+
+      <hr />
+    <% end %>
+
+  </div>
+</div>

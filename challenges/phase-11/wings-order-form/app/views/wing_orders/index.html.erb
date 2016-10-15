@@ -1,0 +1,21 @@
+<h1>Wing Orders</h1>
+
+<div class=".wing_orders">
+<%  @wing_orders.each do |wing_order| %>
+  <div class=".wing_order">
+    <h2><%= wing_order.customer_name %></h2>
+    <span><%= "#{wing_order.city}, #{wing_order.state}" %></span>
+    <span>Quantity: <%= wing_order.quantity %></span>
+    <span>Include Ranch Dressing?: <%= wing_order.ranch_dressing %></span>
+    <h3>Flavors To Include</h3>
+    <% wing_order.flavors.each do |flavor| %>
+      <span><%= flavor.name %></span>
+    <% end %>
+  </div>
+  <br />
+  <%= link_to "Edit Order", edit_wing_order_path(wing_order) %>
+  <hr />
+<% end %>
+</div>
+
+<h3><%= link_to "New Order", new_wing_order_path %></h3>

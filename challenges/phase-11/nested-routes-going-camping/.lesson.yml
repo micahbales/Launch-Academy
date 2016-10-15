@@ -1,0 +1,7 @@
+---
+title: "Nested Routes: Going Camping"
+type: "exercise"
+description: "Help the EE Team go on a camping trip!"
+tags: "rails, nested-routes"
+ignore:
+  - "nested-routes-going-camping.md"

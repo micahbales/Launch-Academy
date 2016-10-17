@@ -1,0 +1,23 @@
+source 'https://rubygems.org'
+
+gem 'rails'
+gem 'pg'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'listen'
+
+# requires `rails g foundation:install` after running `bundle
+gem 'foundation-rails'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'factory_girl_rails'
+  # requires `rails g rspec:install` after running `bundle
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'launchy', require: false
+end

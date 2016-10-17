@@ -24,7 +24,7 @@ var newCommentCreator = function(commentAttributes, divId) {
       var flash = $("<div>", { "class": "flash flash-" + type }).text(message);
       $("body").prepend(flash);
     },
-    append: function() {
+    dappend: function() {
       $('#comments').append("<h3></h3>").text(commentAttributes.title);
       $('#comments').append("<p></p>").text(commentAttributes.content);
       resetForm($('#new_comment'));

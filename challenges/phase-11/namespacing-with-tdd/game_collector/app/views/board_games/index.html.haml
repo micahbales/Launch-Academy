@@ -1,0 +1,23 @@
+%h1 Listing Board Games
+
+%table.table.table-hover
+  %tr
+    %th Name
+    %th Publisher
+    %th Release Date
+    %th
+    %th
+    %th
+
+  - @board_games.each do |board_game|
+    %tr
+      %td= link_to board_game.name, board_game
+      %td= board_game.publisher
+      %td= board_game.release_date
+      %td= link_to 'Show', board_game
+      %td= link_to 'Edit', edit_board_game_path(board_game)
+      %td= link_to 'Destroy', board_game, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Board game', new_board_game_path

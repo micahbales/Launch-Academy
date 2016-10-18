@@ -1,0 +1,21 @@
+%h1= @board_game.name
+
+%div
+  %b Publisher
+  = @board_game.publisher
+
+%div
+  %b Descritption
+  = @board_game.description
+
+%div
+  %b Release Date
+  = @board_game.release_date
+
+%div
+  %b Players
+  = "#{@board_game.min_players} to #{@board_game.max_players}"
+
+= link_to 'Edit', edit_board_game_path(@board_game)
+\|
+= link_to 'Back', board_games_path

@@ -1,0 +1,34 @@
+= form_for @board_game, html: { role: :form } do |f|
+  - if @board_game.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@board_game.errors.count, "error")} prohibited this board_game from being saved:"
+      %ul
+        - @board_game.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+
+  .form-group
+    = f.label :publisher
+    = f.text_field :publisher, class: "form-control"
+
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: "form-control"
+
+  .form-group
+    = f.label :min_players
+    = f.number_field :min_players, min: 1, class: "form-control"
+
+  .form-group
+    = f.label :max_players
+    = f.number_field :max_players, min: 1, class: "form-control"
+
+  .form-group
+    = f.label :release_date
+    = f.date_field :release_date, class: "form-control"
+
+  .actions
+    = f.submit nil, class: "btn btn-default"

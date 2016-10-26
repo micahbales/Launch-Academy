@@ -1,0 +1,21 @@
+<h1><%= @review.title %></h1>
+
+<h3><%= @review.content %></h3>
+
+<h1>Update Review</h1>
+
+<%= form_for [@station, @review] do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <br />
+  <%= f.label :content, "Review" %>
+  <%= f.text_area :content %>
+  <br />
+  <%= f.submit 'Update' %>
+<% end %>
+
+<% if user_signed_in? && current_user.admin? %>
+  <h5><%= link_to "Delete Review", admin_review_path(@review, station_id: @station.id),  method: :delete %></h5>
+<% end %>
+
+<h5><%= link_to "Return to #{@station.name} Station", station_path(@station) %></h5>

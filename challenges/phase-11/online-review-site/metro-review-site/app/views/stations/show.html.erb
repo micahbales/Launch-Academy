@@ -1,0 +1,55 @@
+<h1><%= @station.name %> Station</h1>
+
+<h3>Line: <%= @station.line %></h3>
+
+<h3>State: <%= @station.state %></h3>
+
+<h3>Description: <%= @station.description %></h3>
+
+<h3>Parking? <% if @station.parking %> Yes <% else %> No <% end %> </h3>
+
+<% if user_signed_in? %>
+  <h1>Add Review</h1>
+
+  <%= form_for [@station, @review] do |f| %>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+    <br />
+    <%= f.label :content, "Review" %>
+    <%= f.text_area :content %>
+    <br />
+    <%= f.submit 'Submit Review' %>
+  <% end %>
+<% end %>
+
+<h3>Reviews</h3>
+
+<% @reviews.reverse.each do |review| %>
+  <div class="review-title" ><%= link_to review.title, edit_station_review_path(@station, review) %>
+    <% if user_signed_in? %>
+      <div id="voting-buttons">
+        <%= button_to "+", votes_path(Vote.new, params: { vote: { user_id: current_user.id, review_id: review.id, value: 1 } }), method: :post, id: "upvote-#{review.id}", class: "upvote" %>
+        <%= button_to "-", votes_path(Vote.new, params: { vote: { user_id: current_user.id, review_id: review.id, value: -1 } }), method: :post, id: "downvote-#{review.id}", class: "downvote" %>
+      </div>
+    <% end %>
+
+    <span class="vote-total" >User Rating:
+      <span id="vote-total-<%= review.id %>" >
+        <% if review.vote_total %>
+          <%= review.vote_total %>
+        <% else %>
+          0
+        <% end %>
+      </span>
+    </span>
+    <% if !user_signed_in? %>
+      (<%= link_to "Sign in to vote!", new_user_session_path %>)
+    <% end %>
+  </div>
+  <div class="review-content" ><%= review.content %></div>
+<% end %>
+
+
+<% if user_signed_in? %>
+  <%= link_to 'Update Station', edit_station_path(@station) %>
+<% end %>

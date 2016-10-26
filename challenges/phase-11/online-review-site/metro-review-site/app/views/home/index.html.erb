@@ -1,0 +1,13 @@
+<h1>Metro Review Site</h1>
+
+<% if @stations %>
+  <ul>
+    <% @stations.each do |station| %>
+      <li><%= link_to "#{station.name} Station", station_path(station), id: "station-#{station.id}" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "Add Station", new_station_path %>
+<% end %>

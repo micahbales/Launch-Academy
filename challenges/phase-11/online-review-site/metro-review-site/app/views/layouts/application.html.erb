@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Metro Review Site</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render "layouts/navigation" %>
+    <%= yield %>
+    <br />
+    <div id="flash-container"></div>
+    <% flash.each do |key, value|  %>
+        <%= value %>
+    <% end %>
+  </body>
+</html>

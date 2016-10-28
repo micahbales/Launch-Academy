@@ -7,7 +7,7 @@ def guess_number(min, max)
 
     if guess == 1
       max = middle - 1
-    elsif guess == -1 
+    elsif guess == -1
       min = middle + 1
     else
       return middle

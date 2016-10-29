@@ -1,0 +1,7 @@
+---
+title: "Minimum Consecutive Integers"
+type: "challenge"
+description: "Write a Ruby method to calculate the minimum number of integers required to make a sequence consecutive."
+tags: "evening-exercise"
+ignore:
+- "minimum-consecutive-integers.md"

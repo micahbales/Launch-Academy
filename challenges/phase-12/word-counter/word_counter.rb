@@ -7,16 +7,27 @@ if ARGV.size > 1
   puts "Here be the top #{number_of_words} words we've recovered from ye Briney Deep:"
 
   words_hash = {}
-  f = File.open(text_file, "r") do |file|
+  File.open(text_file, "r") do |file|
     data = file.read
     sanitized = data.gsub(/[,.!?;:*&"]/, '').downcase
 
-    words = sanitized.split(' ')
+    words = sanitized.split
     words.each do |word|
       if words_hash[word]
         words_hash[word] += 1
       else
         words_hash[word] = 1
+      end
+    end
+  end
+
+  File.open("stop_words.txt", "r") do |file|
+    data = file.read
+    stop_words = data.split
+
+    stop_words.each do |stop_word|
+      if words_hash[stop_word]
+        words_hash[stop_word] = 0
       end
     end
   end

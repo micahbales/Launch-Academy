@@ -1,5 +1,3 @@
-require 'pry'
-
 text_file = ARGV[0]
 number_of_words = ARGV[1].to_i
 
